@@ -8,7 +8,6 @@ namespace SeatsSuggestions.Tests.AcceptanceTests
     [TestFixture]
     public class SeatingArrangementRecommenderShould
     {
-        
         [Test]
         public void Suggest_one_seatingPlace_when_Auditorium_contains_one_available_seatingPlace()
         {

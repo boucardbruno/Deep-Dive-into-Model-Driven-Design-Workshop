@@ -1,23 +1,16 @@
 ﻿using ExternalDependencies.AuditoriumLayoutRepository;
 using ExternalDependencies.ReservationsProvider;
-using SeatsSuggestions;
 
-public class AuditoriumSeatingArrangements
+namespace SeatsSuggestions;
+
+public class AuditoriumSeatingArrangements(
+    AuditoriumLayoutRepository auditoriumLayoutRepository,
+    ReservationsProvider reservationsProvider)
 {
-    private readonly AuditoriumLayoutRepository _auditoriumLayoutRepository;
-    private readonly ReservationsProvider _reservedSeatsRepository;
-
-    public AuditoriumSeatingArrangements(AuditoriumLayoutRepository auditoriumLayoutRepository,
-        ReservationsProvider reservationsProvider)
-    {
-        _auditoriumLayoutRepository = auditoriumLayoutRepository;
-        _reservedSeatsRepository = reservationsProvider;
-    }
-
     public AuditoriumSeatingArrangement FindByShowId(string showId)
     {
-        return Adapt(_auditoriumLayoutRepository.GetAuditoriumLayoutFor(showId),
-            _reservedSeatsRepository.GetReservedSeats(showId));
+        return Adapt(auditoriumLayoutRepository.GetAuditoriumLayoutFor(showId),
+            reservationsProvider.GetReservedSeats(showId));
     }
 
     private static AuditoriumSeatingArrangement Adapt(AuditoriumDto auditoriumDto, ReservedSeatsDto reservedSeatsDto)

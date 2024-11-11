@@ -1,16 +1,10 @@
-﻿using SeatsSuggestions;
+﻿namespace SeatsSuggestions;
 
-public class SeatingOptionIsSuggested
+public class SeatingOptionIsSuggested(int partyRequested, PricingCategory priceCategory)
 {
-    public SeatingOptionIsSuggested(int partyRequested, PricingCategory priceCategory)
-    {
-        PartyRequested = partyRequested;
-        PricingCategory = priceCategory;
-    }
-
-    public PricingCategory PricingCategory { get; }
+    public PricingCategory PricingCategory { get; } = priceCategory;
     public List<SeatingPlace> Seats { get; } = new();
-    public int PartyRequested { get; }
+    public int PartyRequested { get; } = partyRequested;
 
     public void AddSeat(SeatingPlace seatingPlace)
     {

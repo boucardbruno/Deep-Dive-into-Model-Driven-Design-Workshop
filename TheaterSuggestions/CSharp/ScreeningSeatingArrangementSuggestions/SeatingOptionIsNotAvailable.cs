@@ -1,9 +1,5 @@
 ﻿namespace SeatsSuggestions;
 
-internal class SeatingOptionIsNotAvailable : SeatingOptionIsSuggested
-{
-    public SeatingOptionIsNotAvailable(int partyRequested, PricingCategory pricingCategory) : base(partyRequested,
-        pricingCategory)
-    {
-    }
-}
+internal class SeatingOptionIsNotAvailable(int partyRequested, PricingCategory pricingCategory)
+    : SeatingOptionIsSuggested(partyRequested,
+        pricingCategory);

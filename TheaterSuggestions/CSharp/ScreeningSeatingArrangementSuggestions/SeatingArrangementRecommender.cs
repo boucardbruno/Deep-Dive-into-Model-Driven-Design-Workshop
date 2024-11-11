@@ -1,18 +1,12 @@
 ﻿namespace SeatsSuggestions;
 
-public class SeatingArrangementRecommender
+public class SeatingArrangementRecommender(AuditoriumSeatingArrangements auditoriumSeatingArrangements)
 {
     private const int NumberOfSuggestions = 3;
-    private readonly AuditoriumSeatingArrangements _auditoriumSeatingArrangements;
-
-    public SeatingArrangementRecommender(AuditoriumSeatingArrangements auditoriumSeatingArrangements)
-    {
-        _auditoriumSeatingArrangements = auditoriumSeatingArrangements;
-    }
 
     public SuggestionsAreMade MakeSuggestions(string showId, int partyRequested)
     {
-        var auditoriumSeating = _auditoriumSeatingArrangements.FindByShowId(showId);
+        var auditoriumSeating = auditoriumSeatingArrangements.FindByShowId(showId);
 
         var suggestionsMade = new SuggestionsAreMade(showId, partyRequested);
 

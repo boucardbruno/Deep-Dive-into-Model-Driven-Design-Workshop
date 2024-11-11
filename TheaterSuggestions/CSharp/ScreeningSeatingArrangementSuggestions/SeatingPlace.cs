@@ -1,19 +1,15 @@
 ﻿namespace SeatsSuggestions;
 
-public class SeatingPlace
+public class SeatingPlace(
+    string rowName,
+    int number,
+    PricingCategory pricingCategory,
+    SeatingPlaceAvailability seatingPlaceAvailability)
 {
-    public SeatingPlace(string rowName, int number, PricingCategory pricingCategory, SeatingPlaceAvailability seatingPlaceAvailability)
-    {
-        RowName = rowName;
-        Number = number;
-        PricingCategory = pricingCategory;
-        SeatingPlaceAvailability = seatingPlaceAvailability;
-    }
-
-    public string RowName { get; }
-    public int Number { get; }
-    public PricingCategory PricingCategory { get; }
-    private SeatingPlaceAvailability SeatingPlaceAvailability { get; set; }
+    public string RowName { get; } = rowName;
+    public int Number { get; } = number;
+    public PricingCategory PricingCategory { get; } = pricingCategory;
+    private SeatingPlaceAvailability SeatingPlaceAvailability { get; set; } = seatingPlaceAvailability;
 
     public bool IsAvailable()
     {
