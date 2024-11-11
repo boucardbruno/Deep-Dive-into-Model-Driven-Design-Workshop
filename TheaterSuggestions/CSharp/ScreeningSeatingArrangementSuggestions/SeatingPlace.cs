@@ -2,7 +2,7 @@
 
 public class SeatingPlace
 {
-    public SeatingPlace(string rowName, uint number, PricingCategory pricingCategory, SeatingPlaceAvailability seatingPlaceAvailability)
+    public SeatingPlace(string rowName, int number, PricingCategory pricingCategory, SeatingPlaceAvailability seatingPlaceAvailability)
     {
         RowName = rowName;
         Number = number;
@@ -11,7 +11,7 @@ public class SeatingPlace
     }
 
     public string RowName { get; }
-    public uint Number { get; }
+    public int Number { get; }
     public PricingCategory PricingCategory { get; }
     private SeatingPlaceAvailability SeatingPlaceAvailability { get; set; }
 
